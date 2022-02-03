@@ -2,7 +2,7 @@
 
 --changeset tauno:users_table
 CREATE TABLE users (
-    user_id INT PRIMARY KEY,
+    user_id SERIAL PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     address VARCHAR(255),

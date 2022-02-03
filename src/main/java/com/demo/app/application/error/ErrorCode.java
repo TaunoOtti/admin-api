@@ -1,4 +1,4 @@
-package com.demo.app.application.exception;
+package com.demo.app.application.error;
 
 public enum ErrorCode {
     TECHNICAL_ERROR,

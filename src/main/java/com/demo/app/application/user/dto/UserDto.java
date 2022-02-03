@@ -1,9 +1,10 @@
-package com.demo.app.application.user;
+package com.demo.app.application.user.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 public class UserDto {
@@ -11,7 +12,7 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private String email;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String phone;
     private String address;
     private LocalDateTime createdDtime;

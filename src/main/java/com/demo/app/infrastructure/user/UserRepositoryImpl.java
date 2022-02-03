@@ -29,12 +29,14 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User updateUser(User user) {
-        return null;
+    public User     saveUser(User user) {
+        var entity = userEntityMapper.toEntity(user);
+        var saved = userJpaRepository.save(entity);
+        return userEntityMapper.toUser(saved);
     }
 
     @Override
-    public void deleteUser(User user) {
-
+    public void deleteUserById(Long userId) {
+        userJpaRepository.deleteById(userId);
     }
 }
