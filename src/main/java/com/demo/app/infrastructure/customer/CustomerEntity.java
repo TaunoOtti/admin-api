@@ -1,4 +1,4 @@
-package com.demo.app.infrastructure.user;
+package com.demo.app.infrastructure.customer;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,16 +17,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
-public class UserEntity {
+@Table(name = "customer")
+public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long customerId;
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDate birthDate;
-    private String phone;
+    private LocalDate dateOfBirth;
+    private String phoneNo;
     private String address;
 
     @Column(updatable = false)

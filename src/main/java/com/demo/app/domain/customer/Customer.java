@@ -1,4 +1,4 @@
-package com.demo.app.domain.user;
+package com.demo.app.domain.customer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,13 +14,13 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private Long userId;
+public class Customer {
+    private Long customerId;
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDate birthDate;
-    private String phone;
+    private LocalDate dateOfBirth;
+    private String phoneNo;
     private String address;
     private LocalDateTime createdDtime;
     private LocalDateTime modifiedDtime;

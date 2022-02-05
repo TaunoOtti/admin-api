@@ -1,19 +1,19 @@
-package com.demo.app.domain.user;
+package com.demo.app.domain.customer;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class UserTestUtil {
+public class CustomerTestUtil {
 
-    public static User createUser() {
-        return User.builder()
-                .userId(1L)
+    public static Customer createCustomer() {
+        return Customer.builder()
+                .customerId(1L)
                 .firstName("firstname")
                 .lastName("lastname")
                 .address("address")
                 .email("as@asd.ee")
-                .phone("12345678")
-                .birthDate(LocalDate.of(1995, 6, 15))
+                .phoneNo("12345678")
+                .dateOfBirth(LocalDate.of(1995, 6, 15))
                 .createdDtime(LocalDateTime.now())
                 .modifiedDtime(LocalDateTime.now())
                 .build();

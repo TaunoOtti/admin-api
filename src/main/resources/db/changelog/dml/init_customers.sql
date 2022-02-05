@@ -1,7 +1,7 @@
 --liquibase formatted sql
 
---changeset tauno:init_users
-INSERT INTO USERS (first_name, last_name, address, email, phone, birth_date, created_dtime, modified_dtime) VALUES
+--changeset tauno:init_customers
+INSERT INTO CUSTOMER (first_name, last_name, address, email, phone_no, date_of_birth, created_dtime, modified_dtime) VALUES
 ('Marko', 'Tamm', 'Mahtra 20, Tallinn', 'marko.tamm@gmail.com', '566830022', '1997-08-24', NOW(), NOW()),
 ('John', 'Wick', 'Wall streen 55, New York', 'john.wick@email.com', '1-339-610-6676', '1972-01-24', NOW(), NOW()),
 ('Brandon', 'Wiggins', '5677 Facilisis Road New Zealand', 'eleifend.egestas@outlook.couk', '1-123456789', '1966-06-15', NOW(), NOW()),
