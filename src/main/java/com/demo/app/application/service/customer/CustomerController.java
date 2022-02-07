@@ -1,17 +1,20 @@
-package com.demo.app.application.customer;
+package com.demo.app.application.service.customer;
 
-import com.demo.app.application.customer.dto.CustomerDto;
-import com.demo.app.application.customer.dto.CustomerRequestDto;
+import com.demo.app.application.service.customer.dto.CustomerDto;
+import com.demo.app.application.service.customer.dto.CustomerRequestDto;
 import com.demo.app.domain.customer.Customer;
 import com.demo.app.domain.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +22,10 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Validated
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 public class CustomerController {
     private final static String CUSTOMER_API_PATH = "/api/customers";
     private final CustomerService customerService;

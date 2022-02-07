@@ -1,5 +1,6 @@
-package com.demo.app.application.customer.dto;
+package com.demo.app.application.service.customer.dto;
 
+import com.demo.app.application.validator.ValidPhoneNo;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,9 +23,8 @@ public class CustomerRequestDto {
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dateOfBirth;
-    @NotBlank
     @Size(min = 1, max = 50)
-//    @Pattern(regexp = "^(\\\\+\\\\d{1,3}( )?)?((\\\\(\\\\d{1,3}\\\\))|\\\\d{1,3})[- .]?\\\\d{3,4}[- .]?\\\\d{4}$", message = )
+    @ValidPhoneNo
     private String phoneNo;
     @NotBlank
     @Size(min = 1, max = 255)

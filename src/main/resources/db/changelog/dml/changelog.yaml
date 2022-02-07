@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: classpath:db/changelog/dml/init_customers.sql
+  - include:
+      file: classpath:db/changelog/dml/init_loans.sql

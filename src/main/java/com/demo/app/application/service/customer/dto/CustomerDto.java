@@ -1,13 +1,15 @@
-package com.demo.app.application.customer.dto;
+package com.demo.app.application.service.customer.dto;
 
+import com.demo.app.application.service.dto.AuditDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class CustomerDto {
+public class CustomerDto extends AuditDto {
     private Long customerId;
     private String firstName;
     private String lastName;
@@ -16,8 +18,4 @@ public class CustomerDto {
     private LocalDate dateOfBirth;
     private String phoneNo;
     private String address;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createdDtime;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime modifiedDtime;
 }

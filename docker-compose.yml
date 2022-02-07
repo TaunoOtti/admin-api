@@ -1,5 +1,16 @@
 version: "3"
 services:
+  app:
+    build:
+      context: .
+    container_name: admin-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/db_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+
   database:
     image: postgres:13
     ports:

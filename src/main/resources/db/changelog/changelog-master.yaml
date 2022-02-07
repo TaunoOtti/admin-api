@@ -2,5 +2,7 @@ databaseChangeLog:
   - include:
       file: classpath:db/changelog/ddl/customer/changelog.yaml
   - include:
+      file: classpath:db/changelog/ddl/loan/changelog.yaml
+  - include:
       file: classpath:db/changelog/dml/changelog.yaml
 

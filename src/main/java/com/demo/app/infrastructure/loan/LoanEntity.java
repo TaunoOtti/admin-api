@@ -1,4 +1,4 @@
-package com.demo.app.infrastructure.customer;
+package com.demo.app.infrastructure.loan;
 
 import com.demo.app.infrastructure.AuditFields;
 import lombok.Getter;
@@ -9,20 +9,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "customer")
-public class CustomerEntity extends AuditFields {
+@Table(name = "loan")
+public class LoanEntity extends AuditFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long loanId;
+    private String loanApplicationName;
+    private LocalDate startDate;
+    private Integer loanPeriodInMonths;
+    private BigDecimal amount;
     private Long customerId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private LocalDate dateOfBirth;
-    private String phoneNo;
-    private String address;
 }

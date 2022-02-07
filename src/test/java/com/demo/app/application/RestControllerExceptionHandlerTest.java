@@ -5,13 +5,17 @@ import com.demo.app.application.error.ErrorDto;
 import com.demo.app.domain.ObjectNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 
 import static com.demo.app.application.RestControllerExceptionHandler.INVALID_INPUT;

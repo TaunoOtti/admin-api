@@ -1,8 +1,8 @@
-package com.demo.app.application.customer;
+package com.demo.app.application.service.customer;
 
 import com.demo.app.application.mapper.RequestMapperUtil;
-import com.demo.app.application.customer.dto.CustomerDto;
-import com.demo.app.application.customer.dto.CustomerRequestDto;
+import com.demo.app.application.service.customer.dto.CustomerDto;
+import com.demo.app.application.service.customer.dto.CustomerRequestDto;
 import com.demo.app.domain.customer.Customer;
 import com.demo.app.domain.customer.CustomerTestUtil;
 import org.junit.jupiter.api.Test;
