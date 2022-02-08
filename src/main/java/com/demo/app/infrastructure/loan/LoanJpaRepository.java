@@ -3,6 +3,7 @@ package com.demo.app.infrastructure.loan;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface LoanJpaRepository extends CrudRepository<LoanEntity, Long> {
 
@@ -10,4 +11,6 @@ public interface LoanJpaRepository extends CrudRepository<LoanEntity, Long> {
     List<LoanEntity> findAll();
 
     List<LoanEntity> findAllByCustomerId(Long customerId);
+
+    Optional<LoanEntity> findByLoanIdAndCustomerId(Long loanId, Long customerId);
 }

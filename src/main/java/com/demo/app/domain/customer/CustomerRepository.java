@@ -11,4 +11,6 @@ public interface CustomerRepository {
     Customer saveCustomer(Customer customer);
 
     void deleteCustomerById(Long customerId);
+
+    boolean customerExists(Long customerId);
 }

@@ -2,6 +2,7 @@ package com.demo.app.application;
 
 import com.demo.app.application.error.ErrorCode;
 import com.demo.app.application.error.ErrorDto;
+import com.demo.app.domain.BusinessValidationException;
 import com.demo.app.domain.ObjectNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpHeaders;
@@ -53,6 +54,16 @@ class RestControllerExceptionHandlerTest {
         assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatus());
         assertEquals(ErrorCode.VALIDATION_ERROR.name(), response.getCode());
         assertEquals(INVALID_INPUT, response.getMessage());
+        assertNull(response.getFields());
+    }
+
+    @Test
+    void shouldHandleBusinessValidationException() {
+        var response = restControllerExceptionHandler.handleException(
+                new BusinessValidationException("new message"));
+        assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatus());
+        assertEquals(ErrorCode.VALIDATION_ERROR.name(), response.getCode());
+        assertEquals("new message", response.getMessage());
         assertNull(response.getFields());
     }
 

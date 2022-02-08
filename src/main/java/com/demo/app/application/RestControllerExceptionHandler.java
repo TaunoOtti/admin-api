@@ -3,6 +3,7 @@ package com.demo.app.application;
 import com.demo.app.application.error.ErrorCode;
 import com.demo.app.application.error.ErrorDto;
 import com.demo.app.application.error.ErrorFieldDto;
+import com.demo.app.domain.BusinessValidationException;
 import com.demo.app.domain.ObjectNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -48,6 +49,16 @@ public class RestControllerExceptionHandler extends ResponseEntityExceptionHandl
                 .status(HttpStatus.BAD_REQUEST.value())
                 .code(ErrorCode.VALIDATION_ERROR.name())
                 .message(INVALID_INPUT)
+                .build();
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDto handleException(BusinessValidationException exception) {
+        return ErrorDto.builder()
+                .status(HttpStatus.BAD_REQUEST.value())
+                .code(ErrorCode.VALIDATION_ERROR.name())
+                .message(exception.getMessage())
                 .build();
     }
 

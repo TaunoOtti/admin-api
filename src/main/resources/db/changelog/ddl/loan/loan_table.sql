@@ -7,7 +7,7 @@ CREATE TABLE loan (
     start_date DATE NOT NULL,
     loan_period_in_months INTEGER NOT NULL,
     amount NUMERIC(12, 2) NOT NULL,
-    customer_id INTEGER REFERENCES customer (customer_id),
+    customer_id INTEGER NOT NULL,
     created_dtime TIMESTAMP,
     modified_dtime TIMESTAMP
 )

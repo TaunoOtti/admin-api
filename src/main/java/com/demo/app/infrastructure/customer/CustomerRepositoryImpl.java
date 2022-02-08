@@ -39,4 +39,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     public void deleteCustomerById(Long customerId) {
         customerJpaRepository.deleteById(customerId);
     }
+
+    @Override
+    public boolean customerExists(Long customerId) {
+        return customerJpaRepository.existsById(customerId);
+    }
 }

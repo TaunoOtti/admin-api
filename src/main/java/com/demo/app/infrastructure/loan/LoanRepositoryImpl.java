@@ -34,4 +34,16 @@ public class LoanRepositoryImpl implements LoanRepository {
         var saved = loanJpaRepository.save(entity);
         return loanEntityMapper.toLoan(saved);
     }
+
+    @Override
+    public Loan getLoanByIdAndCustomerId(Long loanId, Long customerId) {
+        return loanJpaRepository.findByLoanIdAndCustomerId(loanId, customerId)
+                .map(loanEntityMapper::toLoan)
+                .orElse(null);
+    }
+
+    @Override
+    public void delete(Long loanId) {
+        loanJpaRepository.deleteById(loanId);
+    }
 }
