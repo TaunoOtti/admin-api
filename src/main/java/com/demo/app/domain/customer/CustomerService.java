@@ -47,6 +47,7 @@ public class CustomerService {
 
     @Transactional
     public void removeCustomer(Long customerId) {
+        checkCustomerExists(customerId);
         boolean activeLoans = loanService.customerHasAnyActiveLoan(customerId);
         if (activeLoans) {
             throw new BusinessValidationException("Deletion failed - customer has active loans");

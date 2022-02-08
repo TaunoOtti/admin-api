@@ -63,7 +63,6 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = CUSTOMER_API_PATH + "/{customerId}")
     public void deleteCustomer(@PathVariable Long customerId) {
-        customerService.checkCustomerExists(customerId);
         customerService.removeCustomer(customerId);
     }
 }
