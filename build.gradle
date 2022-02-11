@@ -4,12 +4,23 @@ plugins {
 	id 'java'
 }
 
-group = 'com.demo'
+group = 'ee.backend'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
+}
+
+sourceSets {
+	integTest {
+		java {
+			compileClasspath += main.output + test.output
+			runtimeClasspath += main.output + test.output
+			srcDir file('src/integTest/java')
+		}
+		resources.srcDir file('src/integTest/resources')
+	}
 }
 
 dependencies {
@@ -29,8 +40,18 @@ dependencies {
 	runtimeOnly 'org.liquibase:liquibase-core:4.3.1'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	integTestImplementation 'org.springframework.boot:spring-boot-starter-test'
+	integTestImplementation 'org.springframework.boot:spring-boot-starter-web'
+	integTestImplementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	integTestRuntimeOnly 'org.postgresql:postgresql:42.3.1'
 }
 
 test {
 	useJUnitPlatform()
+}
+
+rootProject.tasks.named("processIntegTestResources") {
+	duplicatesStrategy = 'include'
 }
